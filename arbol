@@ -81,6 +81,21 @@ def bootstrap(X, y, model, k, c, g):
         aucs.append(auc)
     return [np.mean(errors), np.var(errors), c, g, precisions, recalls, f1s, aucs, errors]
     
+    TUNEO DE MODELO PARA ARBOL DE DECISION
+    max_depths = [2, 5, 10]
+
+results_dt_bootstrap = []
+
+k = int(len(X)/10)
+
+for depth in max_depths:
+    results_dt_bootstrap.append(bootstrap(X, y, DecisionTreeClassifier(max_depth=depth, random_state=42), k, depth))
+
+# Valores de bias y varianza del respectivo hiperparámetro
+for r in results_dt_bootstrap:
+    print("Profundidad: ", r[2], "\nbias: ", r[0], "\nvarianza: ", r[1])
+    
+    
     
     
     
