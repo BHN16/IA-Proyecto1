@@ -49,3 +49,8 @@ def bootstrap(X, y, model, k, c, g):
     return [np.mean(errors), np.var(errors), c, g, precisions, recalls, f1s, aucs, errors]
     
     
+    K-Fold Cross-Validation
+    
+    
+    
+    
